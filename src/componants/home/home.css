@@ -1,13 +1,16 @@
-#boddy{
-   
-    /* background-image: url(' ');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    
+.home-page-container {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 120px);
 }
-body{
-    background-color: rgb(247, 251, 252);
+
+.home-hero-banner {
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 50%, #ffffff 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

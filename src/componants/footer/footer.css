@@ -1,4 +1,45 @@
-body{
+.bidsphere-footer {
+  background-color: #0b0f19;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 60px 0 30px;
+  color: #94a3b8;
+  font-size: 0.92rem;
+}
 
-    color: antiquewhite;
+.footer-nav-list li {
+  margin-bottom: 10px;
+}
+
+.footer-nav-list a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-nav-list a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-social-link:hover {
+  background: var(--color-primary, #6366f1);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.hover-white:hover {
+  color: #ffffff !important;
 }

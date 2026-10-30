@@ -1,0 +1,274 @@
+/* BidSphere Global Design System & Theme */
+
+:root {
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
+  --color-primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  
+  --color-accent-gold: #f59e0b;
+  --color-gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  
+  --color-emerald: #10b981;
+  --color-emerald-dark: #059669;
+  --color-emerald-gradient: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  
+  --color-dark-bg: #0b0f19;
+  --color-dark-surface: #111827;
+  --color-dark-surface-elevated: #1f2937;
+  --color-dark-border: rgba(255, 255, 255, 0.08);
+
+  --color-light-bg: #f8fafc;
+  --color-light-surface: #ffffff;
+  --color-light-border: #e2e8f0;
+  
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 25px -5px rgba(99, 102, 241, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-light-bg);
+  color: var(--color-text-main);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card Improvements */
+.auction-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-light-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.auction-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: #cbd5e1;
+}
+
+.auction-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f1f5f9;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auction-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.auction-card:hover .auction-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Live Badge with pulsating dot */
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* Custom Buttons */
+.btn-bid-primary {
+  background: var(--color-primary-gradient);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.btn-bid-primary:hover, .btn-bid-primary:focus {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+.btn-bid-gold {
+  background: var(--color-gold-gradient);
+  color: #1e1b4b;
+  border: none;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 10px 22px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+}
+
+.btn-bid-gold:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+}
+
+.btn-bid-outline {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1.5px solid var(--color-light-border);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 9px 18px;
+  transition: all 0.2s ease;
+}
+
+.btn-bid-outline:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: var(--color-primary);
+}
+
+/* Quick Increments Chips */
+.quick-chip {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-chip:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Form Controls */
+.modern-input {
+  border-radius: var(--radius-md);
+  border: 1.5px solid #e2e8f0;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+.modern-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  outline: none;
+}
+
+/* Modern Card */
+.modern-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-light-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+

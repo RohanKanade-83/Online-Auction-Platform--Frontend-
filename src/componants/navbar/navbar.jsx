@@ -1,39 +1,68 @@
-import React from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 import './navbar.css';
 
-const navbar = () => {
+const PublicNavbar = () => {
+  const location = useLocation();
+
   return (
-    <div>
-       <Navbar expand="lg" bg="dark" variant="dark" className="shadow-sm sticky-top">
+    <Navbar expand="lg" className="public-navbar sticky-top">
       <Container>
-        <Navbar.Brand href="/user/home">
-          <img
-            src="https://www.creativefabrica.com/wp-content/uploads/2021/09/30/BS-logo-design-vector-Graphics-18106139-1-1-580x386.jpg"
-            width="40"
-            height="40"
-            className="d-inline-block align-top rounded-circle me-2"
-            alt="Logo"
-          />
-          <span className="fw-bold fs-4">BidSphere</span>
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2">
+          <div className="brand-icon-box">
+            <i className="bi bi-hammer text-white fs-5"></i>
+          </div>
+          <span className="brand-name">
+            Bid<span className="brand-accent">Sphere</span>
+          </span>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="user-navbar-nav" />
-        <Navbar.Collapse id="user-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/login">
-              🏛️ USER
+
+        <Navbar.Toggle aria-controls="public-nav" className="border-0 shadow-none">
+          <i className="bi bi-list text-light fs-2"></i>
+        </Navbar.Toggle>
+
+        <Navbar.Collapse id="public-nav">
+          <Nav className="mx-auto align-items-lg-center">
+            <Nav.Link 
+              as={Link} 
+              to="/" 
+              className={`nav-link-custom ${location.pathname === '/' ? 'active' : ''}`}
+            >
+              <i className="bi bi-house me-1"></i> Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/admin">
-              📦 ADMIN
+            <Nav.Link 
+              as={Link} 
+              to="/user/home" 
+              className={`nav-link-custom ${location.pathname.startsWith('/user/home') ? 'active' : ''}`}
+            >
+              <i className="bi bi-broadcast me-1 text-danger"></i> Live Auctions
             </Nav.Link>
-            </Nav>
-           </Navbar.Collapse>
+            <Nav.Link 
+              as={Link} 
+              to="/admin" 
+              className={`nav-link-custom ${location.pathname === '/admin' ? 'active' : ''}`}
+            >
+              <i className="bi bi-shield-lock me-1"></i> Admin Portal
+            </Nav.Link>
+          </Nav>
+
+          <div className="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+            <Link to="/login" className="text-decoration-none">
+              <button className="btn btn-nav-login">
+                <i className="bi bi-box-arrow-in-right me-1"></i> Sign In
+              </button>
+            </Link>
+            <Link to="/register" className="text-decoration-none">
+              <button className="btn btn-nav-register">
+                Get Started <i className="bi bi-arrow-right-short"></i>
+              </button>
+            </Link>
+          </div>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
-     
-    </div>
-  )
-}
+  );
+};
 
-export default navbar
+export default PublicNavbar;
